@@ -1,0 +1,23 @@
+{
+  "files": [
+    "./src/index.ts"
+  ],
+  "include": [
+    "./typings/*"
+  ],
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "jsx": "react",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "strict": true,
+    "noImplicitAny": true,
+    "preserveConstEnums": true,
+    "allowJs": false
+  }
+}

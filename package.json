@@ -1,0 +1,79 @@
+{
+  "name": "words-counter",
+  "version": "0.0.1",
+  "description": "words-counter",
+  "main": "src/index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BertrandFritsch/words-counter.git"
+  },
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "vars": "env | grep npm_package_",
+    "build": "webpack --env.PUBLIC_PATH=/focusable-timeline --env.NODE_ENV=production -p",
+    "build:watch": "webpack-dev-server --env.NODE_ENV=development --progress -d",
+    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
+    "test:unit:watch": "NODE_ENV=test jest --watch",
+    "test:unit": "NODE_ENV=test jest --coverage --coverageReporters lcov",
+    "tsc": "tsc -p ./tsconfig.all.json --noEmit --pretty"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@types/jest": "^22.2.2",
+    "@types/webpack": "^4.1.2",
+    "@types/webpack-env": "^1.13.5",
+    "@types/webpack-notifier": "^1.5.3",
+    "babel-loader": "^7.1.4",
+    "enzyme-to-json": "^3.3.3",
+    "file-loader": "^1.1.11",
+    "fork-ts-checker-webpack-plugin": "^0.4.1",
+    "jest": "^22.4.3",
+    "source-map-loader": "^0.2.3",
+    "ts-jest": "^22.4.2",
+    "ts-loader": "^4.1.0",
+    "ts-node": "^5.0.1",
+    "tslint": "^5.9.1",
+    "typescript": "^2.7.2",
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.13",
+    "webpack-dev-server": "^3.1.1",
+    "webpack-notifier": "^1.6.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "testMatch": [
+      "**/*.spec.ts"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "ts-jest"
+    },
+    "moduleNameMapper": {
+      ".*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|pdf|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js"
+    },
+    "setupFiles": [
+    ],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ],
+    "roots": [
+      "<rootDir>"
+    ],
+    "globals": {
+      "ts-jest": {
+        "skipBabel": true
+      }
+    },
+    "collectCoverageFrom": [
+      "src/{contexts}/**/*.{ts,tsx}",
+      "!src/{contexts}/**/*.spec.{ts,tsx}"
+    ]
+  }
+}
