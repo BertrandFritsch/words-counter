@@ -21,25 +21,24 @@
     "test:unit": "NODE_ENV=test jest --coverage --coverageReporters lcov",
     "tsc": "tsc -p ./tsconfig.all.json --noEmit --pretty"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@types/jest": "^22.2.2",
-    "@types/webpack": "^4.1.2",
-    "@types/webpack-env": "^1.13.5",
+    "@types/jest": "^22.2.3",
+    "@types/webpack": "^4.1.3",
+    "@types/webpack-env": "^1.13.6",
     "@types/webpack-notifier": "^1.5.3",
     "babel-loader": "^7.1.4",
     "file-loader": "^1.1.11",
     "fork-ts-checker-webpack-plugin": "^0.4.1",
     "jest": "^22.4.3",
     "source-map-loader": "^0.2.3",
-    "ts-jest": "^22.4.2",
-    "ts-loader": "^4.1.0",
-    "ts-node": "^5.0.1",
+    "ts-jest": "^22.4.4",
+    "ts-loader": "^4.2.0",
+    "ts-node": "^6.0.0",
     "tslint": "^5.9.1",
-    "typescript": "^2.7.2",
-    "webpack": "^4.2.0",
-    "webpack-cli": "^2.0.13",
+    "typescript": "^2.8.1",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.14",
     "webpack-notifier": "^1.6.0"
   },
   "jest": {
@@ -56,10 +55,8 @@
     "moduleNameMapper": {
       ".*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|pdf|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js"
     },
-    "setupFiles": [
-    ],
-    "snapshotSerializers": [
-    ],
+    "setupFiles": [],
+    "snapshotSerializers": [],
     "roots": [
       "<rootDir>"
     ],
