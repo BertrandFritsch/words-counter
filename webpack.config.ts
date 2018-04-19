@@ -11,14 +11,13 @@ interface Env {
 export default (env: Env) => {
   const productionEnv = env.NODE_ENV === 'production';
   const developmentEnv = !productionEnv;
-  const title = 'Focusable Timeline';
+  const title = 'words-counterer';
   const publicPath = env.PUBLIC_PATH || '/';
 
   let config: webpack.Configuration = {};
 
   config.entry = [];
-  config.plugins = [
-  ];
+  config.plugins = [];
 
   if (developmentEnv) {
     // add development-specific properties
@@ -48,8 +47,14 @@ export default (env: Env) => {
 
     output: {
       path: path.join(__dirname, '/dist/'),
-      filename: 'index.js',
-      publicPath
+      filename: 'words-counter.js',
+      library: 'wordsCounter',
+      libraryTarget: 'umd',
+
+      // avoid having window defined as the global object
+      // because it prevents the library used by node
+      // see https://github.com/webpack/webpack/issues/6522
+      globalObject: "typeof self !== 'undefined' ? self : this"
     },
 
     resolve: {
@@ -61,7 +66,7 @@ export default (env: Env) => {
       rules: [
         // All files with a '.ts' extension will be handled by 'ts-loader'.
         {
-          test: /\.tsx?$/,
+          test: /\.ts$/,
           use: [
             {
               loader: 'ts-loader',

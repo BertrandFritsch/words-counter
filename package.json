@@ -2,7 +2,7 @@
   "name": "words-counter",
   "version": "0.0.1",
   "description": "words-counter",
-  "main": "src/index.js",
+  "main": "dist/words-counter.js",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -15,7 +15,7 @@
   "scripts": {
     "vars": "env | grep npm_package_",
     "build": "webpack --env.PUBLIC_PATH=/focusable-timeline --env.NODE_ENV=production -p",
-    "build:watch": "webpack-dev-server --env.NODE_ENV=development --progress -d",
+    "build:watch": "webpack --env.NODE_ENV=development --progress -d --watch",
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
     "test:unit:watch": "NODE_ENV=test jest --watch",
     "test:unit": "NODE_ENV=test jest --coverage --coverageReporters lcov",
@@ -29,7 +29,6 @@
     "@types/webpack-env": "^1.13.5",
     "@types/webpack-notifier": "^1.5.3",
     "babel-loader": "^7.1.4",
-    "enzyme-to-json": "^3.3.3",
     "file-loader": "^1.1.11",
     "fork-ts-checker-webpack-plugin": "^0.4.1",
     "jest": "^22.4.3",
@@ -41,7 +40,6 @@
     "typescript": "^2.7.2",
     "webpack": "^4.2.0",
     "webpack-cli": "^2.0.13",
-    "webpack-dev-server": "^3.1.1",
     "webpack-notifier": "^1.6.0"
   },
   "jest": {
@@ -61,7 +59,6 @@
     "setupFiles": [
     ],
     "snapshotSerializers": [
-      "<rootDir>/node_modules/enzyme-to-json/serializer"
     ],
     "roots": [
       "<rootDir>"
@@ -72,8 +69,9 @@
       }
     },
     "collectCoverageFrom": [
-      "src/{contexts}/**/*.{ts,tsx}",
-      "!src/{contexts}/**/*.spec.{ts,tsx}"
+      "src/**/*.ts",
+      "!src/**/*.spec.ts",
+      "!src/index.ts"
     ]
   }
 }
