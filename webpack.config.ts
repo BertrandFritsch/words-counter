@@ -43,11 +43,11 @@ export default (env: Env) => {
   return {
     ...config,
 
-    entry: './src/index.ts',
+    entry: { lib: './src/index.ts', lambda: './src/lambdaIndex.ts' },
 
     output: {
       path: path.join(__dirname, '/dist/'),
-      filename: 'words-counter.js',
+      filename: '[name].js',
       library: 'wordsCounter',
       libraryTarget: 'umd',
 

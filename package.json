@@ -2,7 +2,7 @@
   "name": "words-counter",
   "version": "0.0.1",
   "description": "words-counter",
-  "main": "dist/words-counter.js",
+  "main": "dist/lib.js",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -14,12 +14,14 @@
   ],
   "scripts": {
     "vars": "env | grep npm_package_",
-    "build": "webpack --env.PUBLIC_PATH=/focusable-timeline --env.NODE_ENV=production -p",
+    "build": "webpack --env.NODE_ENV=production -p",
     "build:watch": "webpack --env.NODE_ENV=development --progress -d --watch",
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
     "test:unit:watch": "NODE_ENV=test jest --watch",
     "test:unit": "NODE_ENV=test jest --coverage --coverageReporters lcov",
-    "tsc": "tsc -p ./tsconfig.all.json --noEmit --pretty"
+    "tsc": "tsc -p ./tsconfig.all.json --noEmit --pretty",
+    "aws:build": "zip -j words-counter-package.zip ./dist/lambda.js",
+    "aws:deploy": "aws lambda update-function-code --function-name WordsCounter --zip-file fileb://words-counter-package.zip"
   },
   "dependencies": {},
   "devDependencies": {
